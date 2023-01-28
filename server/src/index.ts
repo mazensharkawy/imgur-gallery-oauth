@@ -17,7 +17,13 @@ app.use(
 );
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("it works");
+  fetch("https://api.imgur.com/3/gallery/hot/viral/day/1?album_previews=true?albumPreviews=false&showMature=false",{
+      headers:{
+        "Authorization": "Client-ID d07ca043349696e"
+      }
+    }).then(response=>response.json()).then(response=>{
+      res.json(response.data.slice(0,20))
+    }).catch(err=>res.status(500).send(err))
 });
 
 const PORT = process.env.PORT || 5000;
