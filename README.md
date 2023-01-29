@@ -2,7 +2,11 @@
 
 This is a monorepo containing Next.js frontend and Express for backend. Frontend lies inside `client` directory and Backend is inside `server` directory.
 
+
+```sh
 github.com/bhavesh-chaudhari/ts-nextjs-express-starter.git
+```
+
 I have forked this repo as a template to start this project
 
 ### 1. Clone the repo
