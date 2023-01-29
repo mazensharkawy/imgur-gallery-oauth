@@ -1,18 +1,29 @@
 import React, { useState, SyntheticEvent } from "react";
+import { SetStateAction } from "react";
+import { Dispatch } from "react";
 import FilterInput from "./FilterInput";
 
 const sectionOptions = ["hot", "top", "user"];
 const sortOptions = ["viral", "top", "time", "rising"];
 const windowOptions = ["day", "week", "month", " year", " all"];
 
-export default (): JSX.Element => {
-  const [section, changeSection] = useState("hot");
-  const [sort, changeSort] = useState("viral");
-  const [window, changeWindow] = useState("day");
+type Props = {
+  section: string;
+  changeSection: Dispatch<SetStateAction<string>>;
+  sort: string;
+  changeSort: Dispatch<SetStateAction<string>>;
+  window: string;
+  changeWindow: Dispatch<SetStateAction<string>>;
+};
 
-  const changeSection2 = (event) => {
-    console.log({ event });
-  };
+export default ({
+  section,
+  changeSection,
+  sort,
+  changeSort,
+  window,
+  changeWindow,
+}: Props): JSX.Element => {
   return (
     <div className="d-flex justify-content-around w-100">
       <FilterInput
